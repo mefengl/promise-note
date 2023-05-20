@@ -20,3 +20,21 @@ Promise.resolve()
     console.log('done')
   })
 ```
+
+## Promise Retry
+
+```javascript
+function retry(promiseFn, times, delay) {
+  return new Promise((resolve, reject) => {
+    const run = (count = 0) => {
+      promiseFn()
+        .then(resolve)
+        .catch(err => {
+          if (count === times) reject(err);
+          else setTimeout(run, delay *= 2, count + 1);
+        });
+    };
+    run();
+  });
+}
+```

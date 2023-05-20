@@ -21,6 +21,15 @@ Promise.resolve()
   })
 ```
 
+## Promise Race
+
+```javascript
+Promise.race([p1, p2, p3])
+  .then(w => {
+    console.log(w)
+  })
+```
+
 ## Promise Retry
 
 ```javascript
